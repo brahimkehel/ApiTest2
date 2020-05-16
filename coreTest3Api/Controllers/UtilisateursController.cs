@@ -17,9 +17,17 @@ namespace coreTest3Api.Controllers
     {
         private readonly Pfa_dbContext _context;
 
-        public UtilisateursController(Pfa_dbContext context)
+        public UtilisateursController(Pfa_dbContext context)    
         {
             _context = context;
+        }
+
+        //GET: api/Enseignants/Nb
+        [HttpGet]
+        [Route("Nb")]
+        public async Task<int> GetNb()
+        {
+            return await _context.Utilisateur.CountAsync();
         }
 
         //POST: api/Utilisateurs/Login
@@ -27,7 +35,7 @@ namespace coreTest3Api.Controllers
         [Route("Login")]
         public async Task<ActionResult> Login([FromBody]Utilisateur utilisateur)
         {
-            var user = _context.Utilisateur.FromSqlInterpolated($"SELECT * FROM dbo.Utilisateurs").Where(res => res.Email == utilisateur.Email).FirstOrDefault();
+            var user = _context.Utilisateur.FromSqlInterpolated($"SELECT * FROM dbo.Utilisateur").Where(res => res.Email == utilisateur.Email).FirstOrDefault();
             //var user = await _context.Utilisateurs.FindAsync(utilisateur.Id);
             if (user != null && user.MotdePasse == utilisateur.MotdePasse && user.Email == utilisateur.Email)
             {

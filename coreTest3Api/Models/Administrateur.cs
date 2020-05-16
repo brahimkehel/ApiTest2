@@ -15,5 +15,6 @@ namespace coreTest3Api.Models
         public string Adresse { get; set; }
         public string Telephone { get; set; }
         public string Cne { get; set; }
+        public string MotdePasse { get; set; }
     }
 }

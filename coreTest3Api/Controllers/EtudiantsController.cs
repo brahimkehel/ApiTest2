@@ -22,6 +22,14 @@ namespace coreTest3Api.Controllers
             _context = context;
         }
 
+        //GET: api/Enseignants/Nb
+        [HttpGet]
+        [Route("Nb")]
+        public async Task<int> GetNb()
+        {
+            return await _context.Etudiant.CountAsync();
+        }
+
         // GET: api/Etudiants
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Etudiant>>> GetEtudiant()

@@ -96,6 +96,9 @@ namespace coreTest3Api.Models
                 entity.Property(e => e.Telephone)
                     .HasMaxLength(100)
                     .IsUnicode(false);
+                entity.Property(e => e.MotdePasse)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<AnneeScolaire>(entity =>
@@ -144,12 +147,14 @@ namespace coreTest3Api.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.DateEmb)
-                    .HasColumnName("Date_Emb")
-                    .HasColumnType("date");
+                   .HasColumnName("Date_Emb")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DateNais)
                     .HasColumnName("Date_nais")
-                    .HasColumnType("date");
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(100)
@@ -168,6 +173,9 @@ namespace coreTest3Api.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Telephone)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+                entity.Property(e => e.MotdePasse)
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
@@ -201,9 +209,9 @@ namespace coreTest3Api.Models
 
                 entity.Property(e => e.IdFiliere).HasColumnName("Id_Filiere");
 
-                entity.Property(e => e.MotdePasse)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
+                    entity.Property(e => e.MotdePasse)
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
 
                 entity.Property(e => e.Nom)
                     .HasMaxLength(100)

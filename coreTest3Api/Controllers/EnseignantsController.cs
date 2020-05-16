@@ -22,6 +22,14 @@ namespace coreTest3Api.Controllers
             _context = context;
         }
 
+        //GET: api/Enseignants/Nb
+        [HttpGet]
+        [Route("Nb")]
+        public async Task<int> GetNb()
+        {
+            return await _context.Enseignant.CountAsync();
+        }
+
         // GET: api/Enseignants
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Enseignant>>> GetEnseignant()
@@ -81,7 +89,7 @@ namespace coreTest3Api.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Route("Ajouter")]
-        public async Task<ActionResult<Enseignant>> PostEnseignant(Enseignant enseignant)
+        public async Task<ActionResult<Enseignant>> PostEnseignant([FromBody]Enseignant enseignant)
         {
             _context.Enseignant.Add(enseignant);
             await _context.SaveChangesAsync();
